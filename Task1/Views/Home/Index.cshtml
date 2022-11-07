@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Task1.Models.CalculatorInput
+
+<div class="text-center">
+    <h1 class="display-4">Simple Calculator </h1>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    <input required id="number-input-1" type="text" name="Number1" value=@Model.Number1>
+                </td>
+                <td>
+                    <span class="alert-danger">@Model.Errors</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="+" name="opr">
+                    <input type="submit" value="-" name="opr"/>
+                    <input type="submit" value="*" name="opr"/>
+                    <input type="submit" value="/" name="opr"/>
+                </td>
+                <td>
+                    <input required type="text" readonly value=@Model.Result />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="number-input-2" type="text" name="Number2" value=@Model.Number2>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
